@@ -20,14 +20,13 @@ public class ProvinciasDAOImplFileString implements ProvinciasDAO{
 		sc = new Scanner(file);
 		Hashtable<Integer, String> hash = new Hashtable<>();
 		if(file.canRead()) {
-			int i =0;
 			while(sc.hasNextLine()) {
 				String [] aux = sc.nextLine().split(";");
-				hash.put(Integer.valueOf(aux[i]), aux[i+1]);
-				i ++;
+				hash.put(Integer.valueOf(aux[0]), aux[1]);
 			}
 			
 		}
+		sc.close();
 		return hash;
 	}
 
