@@ -8,9 +8,11 @@ import java.util.Hashtable;
 import java.util.List;
 
 import usal.edu.ar.Util.PropertiesUtil;
+import usal.edu.ar.dao.Factory.AlianzasFactory;
 import usal.edu.ar.dao.Factory.ClienteFactory;
 import usal.edu.ar.dao.Factory.PaisesFactory;
 import usal.edu.ar.dao.Factory.ProvinciaFactory;
+import usal.edu.ar.dao.Interfaz.AlianzasDAO;
 import usal.edu.ar.dao.Interfaz.ClienteDAO;
 import usal.edu.ar.dao.Interfaz.PaisesDAO;
 import usal.edu.ar.dao.Interfaz.ProvinciasDAO;
@@ -23,11 +25,12 @@ import usal.edu.ar.dao.Negocio.Telefono;
 public class Principal {
 
 	public static void main(String[] args) {
-		 // Provincias . 
+	 
 		/*
-		 * Se testea que se puedan cargar las provincias que estan alojadas en un archivo de texto
+		 * Se testea que se puedan cargar las provincias, alianzas, paises que estan alojados en un archivo de texto
 		 */
 		
+		 /////////////////// Provincias . 
 //		ProvinciasDAO provString = ProvinciaFactory.getImplementacion();
 //		
 //		try {
@@ -45,7 +48,24 @@ public class Principal {
 //			e.printStackTrace();
 //		}
 		
-		// Paises
+		/////////////////Alianzas
+//		AlianzasDAO aliString = AlianzasFactory.getImplementacion();
+//		Hashtable<Integer, String> alianzas = new Hashtable<>();
+//		
+//		try {
+//			alianzas = aliString.readAlianzas();
+//			for(int i=0; i<alianzas.size(); i++) {
+//				System.out.println("Alianza: "+alianzas.get(i));
+//			}
+//		} catch (FileNotFoundException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+		
+		//////////////// Paises
 		
 //		PaisesDAO paiString = PaisesFactory.getImplementacion();
 //		try {
