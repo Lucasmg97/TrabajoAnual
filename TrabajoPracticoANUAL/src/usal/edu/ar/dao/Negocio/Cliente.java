@@ -127,7 +127,7 @@ public class Cliente implements Serializable{
 	public String toString() {
 		return "Cliente [nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", pasaporte=" + pasaporte.toString()
 				+ ", cuitcuil=" + cuitcuil + ", fechanacimiento=" + fechanacimiento + ", email=" + email + ", telefono="
-				+ telefono + ", pasajeroFrecuente=" + pasajeroFrecuente.toString() + ", direccion=" + direccion.toString() + "]";
+				+ telefono.toString() + ", pasajeroFrecuente=" + pasajeroFrecuente.toString() + ", direccion=" + direccion.toString() + "]";
 	}
 	
 	

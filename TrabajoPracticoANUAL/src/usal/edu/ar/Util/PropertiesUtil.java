@@ -40,4 +40,12 @@ public class PropertiesUtil {
 	public static String getFileAlianzas() {
 		return config.getProperty("fileAlianzas");
 	}
+	
+	public static String getPathClientes() {
+		return config.getProperty("pathClientes");
+	}
+	public static String getFileClientes() {
+		return config.getProperty("fileClientes");
+	}
 }
+	
