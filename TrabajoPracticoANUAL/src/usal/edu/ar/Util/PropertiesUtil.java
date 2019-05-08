@@ -47,5 +47,8 @@ public class PropertiesUtil {
 	public static String getFileClientes() {
 		return config.getProperty("fileClientes");
 	}
+	public static String getFileAerolineas() {
+		return config.getProperty("fileAerolineas");
+	}
 }
 	

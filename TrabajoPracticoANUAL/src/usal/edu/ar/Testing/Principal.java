@@ -8,10 +8,12 @@ import java.util.Hashtable;
 import java.util.List;
 
 import usal.edu.ar.Util.PropertiesUtil;
+import usal.edu.ar.dao.Factory.AerolineasFactory;
 import usal.edu.ar.dao.Factory.AlianzasFactory;
 import usal.edu.ar.dao.Factory.ClienteFactory;
 import usal.edu.ar.dao.Factory.PaisesFactory;
 import usal.edu.ar.dao.Factory.ProvinciaFactory;
+import usal.edu.ar.dao.Interfaz.AerolineasDAO;
 import usal.edu.ar.dao.Interfaz.AlianzasDAO;
 import usal.edu.ar.dao.Interfaz.ClienteDAO;
 import usal.edu.ar.dao.Interfaz.PaisesDAO;
@@ -80,6 +82,23 @@ public class Principal {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
+		
+		/////////////////////Aerolineas
+//		AerolineasDAO aeroString = AerolineasFactory.getImplementacion();
+//		Hashtable<Integer, String> aerolineas = new Hashtable<>();
+//		try {
+//			aerolineas = aeroString.readAerolineas();
+//			for(int i=0; i<aerolineas.size(); i++) {
+//				System.out.println("Aerolineas: "+aerolineas.get(i));
+//			}
+//		} catch (FileNotFoundException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		
 		
 		////////////////////////////////////////////// TESTEO CLIENTES
 		Date fechaemision = new Date(119,4,7);
