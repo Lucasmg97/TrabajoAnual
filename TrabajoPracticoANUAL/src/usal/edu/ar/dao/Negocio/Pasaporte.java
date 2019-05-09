@@ -10,12 +10,12 @@ public class Pasaporte implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String numero;
-	private int paisEmision;
+	private Pais paisEmision;
 	private String autoridadEmision;
 	private Date  fechaEmision;
 	private Date fechaVencimiento;
 	
-	public Pasaporte(String numero, int paisEmision, String autoridadEmision, Date fechaEmision,
+	public Pasaporte(String numero, Pais paisEmision, String autoridadEmision, Date fechaEmision,
 			Date fechaVencimiento) {
 		super();
 		this.numero = numero;
@@ -36,11 +36,11 @@ public class Pasaporte implements Serializable {
 		this.numero = numero;
 	}
 
-	public int getPaisEmision() {
+	public Pais getPaisEmision() {
 		return paisEmision;
 	}
 
-	public void setPaisEmision(int paisEmision) {
+	public void setPaisEmision(Pais paisEmision) {
 		this.paisEmision = paisEmision;
 	}
 
@@ -74,7 +74,7 @@ public class Pasaporte implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Pasaporte [numero=" + numero + ", paisEmision=" + paisEmision + ", autoridadEmision=" + autoridadEmision
+		return "Pasaporte [numero=" + numero + ", paisEmision=" + paisEmision.toString() + ", autoridadEmision=" + autoridadEmision
 				+ ", fechaEmision=" + fechaEmision + ", fechaVencimiento=" + fechaVencimiento + "]";
 	}
 	

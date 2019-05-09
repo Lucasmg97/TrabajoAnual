@@ -50,5 +50,12 @@ public class PropertiesUtil {
 	public static String getFileAerolineas() {
 		return config.getProperty("fileAerolineas");
 	}
+	
+	public static String getPathAerolineas() {
+		return config.getProperty("pathLineaAerea");
+	}
+	public static String getFileAerolineasObject() {
+		return config.getProperty("fileLineaAerea");
+	}
 }
 	

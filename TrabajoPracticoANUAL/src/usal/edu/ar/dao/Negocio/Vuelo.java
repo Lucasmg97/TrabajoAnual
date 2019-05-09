@@ -17,7 +17,7 @@ public class Vuelo implements Serializable{
 	private Aeropuerto aeropuertoLlegada;
 	private Date fechahorasalida;
 	private Date fechahorallegada;
-	private String tiempovuelo;
+	private String tiempovuelo; // Hay que ver como se manipula el tiempo de vuelo , para sumarselo al aeropuerto de llegada  y saber cuando llega.
 	private List<Cliente> clientes;
 	
 	public Vuelo() {

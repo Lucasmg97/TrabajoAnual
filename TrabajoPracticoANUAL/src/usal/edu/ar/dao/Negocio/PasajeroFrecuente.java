@@ -8,12 +8,12 @@ public class PasajeroFrecuente implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int alianza;
-	private int aerolinea;
+	private Alianza alianza;
+	private int aerolinea; //Duda de como declarar este atributo , si como objeto de lineaerea o q.
 	private String numero;
 	private String categoria;
 	
-	public PasajeroFrecuente(int alianza, int aerolinea, String numero, String categoria) {
+	public PasajeroFrecuente(Alianza alianza, int aerolinea, String numero, String categoria) {
 		super();
 		this.alianza = alianza;
 		this.aerolinea = aerolinea;
@@ -25,11 +25,11 @@ public class PasajeroFrecuente implements Serializable{
 		
 	}
 
-	public int getAlianza() {
+	public Alianza getAlianza() {
 		return alianza;
 	}
 
-	public void setAlianza(int alianza) {
+	public void setAlianza(Alianza alianza) {
 		this.alianza = alianza;
 	}
 

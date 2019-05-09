@@ -3,11 +3,14 @@ package usal.edu.ar.dao.Implementacion;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Scanner;
 
 import usal.edu.ar.Util.PropertiesUtil;
 import usal.edu.ar.dao.Interfaz.ProvinciasDAO;
+import usal.edu.ar.dao.Negocio.Provincia;
 
 public class ProvinciasDAOImplFileString implements ProvinciasDAO{
 	
@@ -29,5 +32,4 @@ public class ProvinciasDAOImplFileString implements ProvinciasDAO{
 		sc.close();
 		return hash;
 	}
-
 }

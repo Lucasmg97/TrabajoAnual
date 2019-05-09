@@ -9,6 +9,7 @@ public class Cliente implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private int id;
 	private String nombre;
 	private String apellido;
 	private int dni;
@@ -20,9 +21,10 @@ public class Cliente implements Serializable{
 	private PasajeroFrecuente pasajeroFrecuente;
 	private Direccion direccion;
 	
-	public Cliente(String nombre, String apellido, int dni, Pasaporte pasaporte, String cuitcuil, Date fechanacimiento,
+	public Cliente(int id,String nombre, String apellido, int dni, Pasaporte pasaporte, String cuitcuil, Date fechanacimiento,
 			String email, Telefono telefono, PasajeroFrecuente pasajeroFrecuente, Direccion direccion) {
 		super();
+		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
@@ -37,6 +39,14 @@ public class Cliente implements Serializable{
 
 	public Cliente() {
 		
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNombre() {

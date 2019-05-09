@@ -28,7 +28,7 @@ public class ClienteDAOImplFileStream implements ClienteDAO{
 	public boolean saveCliente(Cliente cliente) throws IOException, FileNotFoundException {
 		List<Cliente> lista = this.getAll();
 		lista.add(cliente);
-		this.saveAll(lista);
+		this.saveAll(lista);	
 		return true;
 	}
 
