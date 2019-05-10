@@ -15,12 +15,17 @@ import usal.edu.ar.dao.Factory.ClienteFactory;
 import usal.edu.ar.dao.Factory.LineaAereaFactory;
 import usal.edu.ar.dao.Factory.PaisesFactory;
 import usal.edu.ar.dao.Factory.ProvinciaFactory;
+import usal.edu.ar.dao.Factory.VentasFactory;
+import usal.edu.ar.dao.Factory.VueloFactory;
 import usal.edu.ar.dao.Interfaz.AerolineasDAO;
 import usal.edu.ar.dao.Interfaz.AlianzasDAO;
 import usal.edu.ar.dao.Interfaz.ClienteDAO;
 import usal.edu.ar.dao.Interfaz.LineaAereaDAO;
 import usal.edu.ar.dao.Interfaz.PaisesDAO;
 import usal.edu.ar.dao.Interfaz.ProvinciasDAO;
+import usal.edu.ar.dao.Interfaz.VentasDAO;
+import usal.edu.ar.dao.Interfaz.VueloDAO;
+import usal.edu.ar.dao.Negocio.Aeropuerto;
 import usal.edu.ar.dao.Negocio.Alianza;
 import usal.edu.ar.dao.Negocio.Cliente;
 import usal.edu.ar.dao.Negocio.Direccion;
@@ -30,6 +35,7 @@ import usal.edu.ar.dao.Negocio.PasajeroFrecuente;
 import usal.edu.ar.dao.Negocio.Pasaporte;
 import usal.edu.ar.dao.Negocio.Provincia;
 import usal.edu.ar.dao.Negocio.Telefono;
+import usal.edu.ar.dao.Negocio.Venta;
 import usal.edu.ar.dao.Negocio.Vuelo;
 
 public class Principal {
@@ -113,10 +119,12 @@ public class Principal {
 		Date fechavencimiento = new Date(120,4,7);
 		Date fechanacimiento = new Date(97,7,6);
 		Pais pais = new Pais(1,"Argentina");
+		List<Vuelo> vuelos = new ArrayList<>();
+		LineaAerea lineaAerea = new LineaAerea(1,"Aerolineas Argentinas",Alianza.Oneworld,vuelos);
 		Alianza alianza ;
 		Provincia provincia = new Provincia(1,"BS AS");
-		Pasaporte pasaporte = new Pasaporte("AOF123",pais,"Argen",fechaemision, fechavencimiento);
-		PasajeroFrecuente pasajeroFrecuente = new PasajeroFrecuente(Alianza.Oneworld,2,"12","Economica");
+		Pasaporte pasaporte = new Pasaporte(1,"AOF123",pais,"Argen",fechaemision, fechavencimiento);
+		PasajeroFrecuente pasajeroFrecuente = new PasajeroFrecuente(1,Alianza.Oneworld,lineaAerea,"12","Economica");
 		Direccion direccion = new Direccion("Av españa","1154","Lujan",provincia,pais,"6700");
 		Telefono telefono = new Telefono("2323524566","2323123432","232305054");
 		Cliente cliente = new Cliente(1,"Lucas","Martinez Gomez",40580890, pasaporte,"40580890",fechanacimiento,"Lucas.martinezgomez@usal.edu.ar",telefono , pasajeroFrecuente, direccion);
@@ -185,14 +193,14 @@ public class Principal {
 //			}
 //		} catch (FileNotFoundException e) {
 //			// TODO Auto-generated catch block
-//			e.printStackTrace();
+//			e.printStackTrace();	
 //		} catch (IOException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
 		
 		//////////////////////////AEROLINEAS
-		List<Vuelo> vuelos = new ArrayList<>(); // Lista vacia , FALTA GENERAR VUELOS PARA AGREGARLOS.
+		//List<Vuelo> vuelos = new ArrayList<>(); // Lista vacia , FALTA GENERAR VUELOS PARA AGREGARLOS.
 		LineaAerea aerolinea = new LineaAerea(0,"GOL",Alianza.Skyteam,vuelos);
 		LineaAereaDAO aeroStream = LineaAereaFactory.getImplementacion("Stream");
 		
@@ -209,6 +217,21 @@ public class Principal {
 //		} catch (IOException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
+//		}
+		//Borrar
+		
+//		try {
+//			if(aeroStream.deleteAerolinea(aerolinea)) {
+//				System.out.println("Se borro una aerolinea con exito");
+//			}else {
+//				System.out.println("no se pudo borrar la aerolinea");
+//			}
+//		} catch (FileNotFoundException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
 //		}
 		
 		//MOSTRAR
@@ -229,7 +252,105 @@ public class Principal {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
+		
+		//////////////////////// VUELOS
+		String tiempo = "6";
+		Date horasalida = new Date(119, 5, 5, 12, 0);
+		Date horallegada = new Date(119,5,5,horasalida.getHours()+Integer.valueOf(tiempo),0);
+		Aeropuerto aeropuertosalida = new Aeropuerto(1, "MDQ","mar del plata", provincia,pais);
+		Aeropuerto aeropuertollegada = new Aeropuerto(1,"GES","gesell",provincia,pais);
+		List<Cliente> clientes = new ArrayList<>();
+		Vuelo vuelo = new Vuelo(1,"AEE123",aerolinea,50,aeropuertosalida,aeropuertollegada,horasalida,horallegada,tiempo,clientes);
+		
+		VueloDAO vueloStream = VueloFactory.getImplementacion("Stream");
+		//Agregar
+//		try {
+//			if(vueloStream.addVuelo(vuelo)) {
+//				System.out.println("Se agrego un vuelo");
+//			}else {
+//				System.out.println("No se pudo agregar un vuelo");
+//			}
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		//Eliminar
+//		try {
+//			if(vueloStream.deleteVuelo(vuelo)) {
+//				System.out.println("Se elimino el vuel");
+//			}else {
+//				System.out.println("no se elimino");
+//			}
+//		} catch (FileNotFoundException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
 			
+			
+			
+		//Mostrar
+		
+//		try {
+//			List<Vuelo> lista = vueloStream.getAll();
+//			if(lista.isEmpty()) {
+//				System.out.println("La lista de vuelos se encuentra vacia");
+//			}else{
+//				for(Vuelo v :lista) {
+//					System.out.println(v.toString());
+//				}
+//			}
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+		/////////////////////////////VENTAS
+		Date fechahoraventa= new Date(119,5,6,20,30);
+		Venta venta = new Venta(1,cliente,vuelo,lineaAerea,fechahoraventa,"Efectivo",1,"40000");
+		VentasDAO ventaStream = VentasFactory.getImplementacion("Stream");
+		
+		//AGREGAR
+		try {
+			if(ventaStream.addVenta(venta)) {
+				System.out.println("Se genero una venta");
+			}else {
+				System.out.println("No se pudo guardar la venta");
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// MOSTRAR
+		
+		try {
+			List<Venta> lista = ventaStream.getAll();
+			if(lista.isEmpty()) {
+				System.out.println("La lista se encuentra vacia");
+			}else {
+				for(Venta v: lista) {
+					System.out.println(v.toString());
+				}
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }

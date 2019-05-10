@@ -14,7 +14,7 @@ public class Aeropuerto implements Serializable{
 	private Provincia provincia;
 	private Pais pais;
 	
-	public Aeropuerto(int id,String identificacion, int cantidadAsientos, String ciudad, Provincia provincia, Pais pais) {
+	public Aeropuerto(int id,String identificacion, String ciudad, Provincia provincia, Pais pais) {
 		super();
 		this.id = id;
 		this.identificacion = identificacion;

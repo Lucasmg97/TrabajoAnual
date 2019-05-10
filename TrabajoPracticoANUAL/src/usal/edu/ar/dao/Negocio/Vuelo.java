@@ -10,6 +10,7 @@ public class Vuelo implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private int id;
 	private String id_vuelo;
 	private LineaAerea lineaAerea;
 	private int cantidadAsientos;
@@ -24,10 +25,11 @@ public class Vuelo implements Serializable{
 		
 	}
 
-	public Vuelo(String id_vuelo, LineaAerea lineaAerea, int cantidadAsientos, Aeropuerto aeropuertoSalida,
+	public Vuelo(int id,String id_vuelo, LineaAerea lineaAerea, int cantidadAsientos, Aeropuerto aeropuertoSalida,
 			Aeropuerto aeropuertoLlegada, Date fechahorasalida, Date fechahorallegada, String tiempovuelo,
 			List<Cliente> clientes) {
 		super();
+		this.id = id;
 		this.id_vuelo = id_vuelo;
 		this.lineaAerea = lineaAerea;
 		this.cantidadAsientos = cantidadAsientos;
@@ -37,6 +39,16 @@ public class Vuelo implements Serializable{
 		this.fechahorallegada = fechahorallegada;
 		this.tiempovuelo = tiempovuelo;
 		this.clientes = clientes;
+	}
+	
+	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getId_vuelo() {

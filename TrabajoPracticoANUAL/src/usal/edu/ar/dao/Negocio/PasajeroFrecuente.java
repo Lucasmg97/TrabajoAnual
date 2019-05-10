@@ -8,15 +8,17 @@ public class PasajeroFrecuente implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private int id;
 	private Alianza alianza;
-	private int aerolinea; //Duda de como declarar este atributo , si como objeto de lineaerea o q.
+	private LineaAerea lineaAerea;
 	private String numero;
 	private String categoria;
 	
-	public PasajeroFrecuente(Alianza alianza, int aerolinea, String numero, String categoria) {
+	public PasajeroFrecuente(int id,Alianza alianza, LineaAerea lineaAerea, String numero, String categoria) {
 		super();
+		this.id = id;
 		this.alianza = alianza;
-		this.aerolinea = aerolinea;
+		this.lineaAerea = lineaAerea;
 		this.numero = numero;
 		this.categoria = categoria;
 	}
@@ -33,12 +35,12 @@ public class PasajeroFrecuente implements Serializable{
 		this.alianza = alianza;
 	}
 
-	public int getAerolinea() {
-		return aerolinea;
+	public LineaAerea getLineaAerea() {
+		return lineaAerea;
 	}
 
-	public void setAerolinea(int aerolinea) {
-		this.aerolinea = aerolinea;
+	public void setLineaAerea(LineaAerea lineaAerea) {
+		this.lineaAerea = lineaAerea;
 	}
 
 	public String getNumero() {
@@ -63,8 +65,16 @@ public class PasajeroFrecuente implements Serializable{
 
 	@Override
 	public String toString() {
-		return "PasajeroFrecuente [alianza=" + alianza + ", aerolinea=" + aerolinea + ", numero=" + numero
+		return "PasajeroFrecuente [alianza=" + alianza + ", aerolinea=" + lineaAerea.toString() + ", numero=" + numero
 				+ ", categoria=" + categoria + "]";
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

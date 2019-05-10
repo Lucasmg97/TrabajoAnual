@@ -57,5 +57,18 @@ public class PropertiesUtil {
 	public static String getFileAerolineasObject() {
 		return config.getProperty("fileLineaAerea");
 	}
+	
+	public static String getPathVuelos() {
+		return config.getProperty("pathVuelos");
+	}
+	public static String getFileVulos() {
+		return config.getProperty("fileVuelos");
+	}
+	public static String getPathVentas() {
+		return config.getProperty("pathVentas");
+	}
+	public static String getFileVentas() {
+		return config.getProperty("fileVentas");
+	}
 }
 	
