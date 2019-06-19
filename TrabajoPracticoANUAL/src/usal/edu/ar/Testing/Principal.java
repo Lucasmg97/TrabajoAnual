@@ -319,19 +319,19 @@ public class Principal {
 		VentasDAO ventaStream = VentasFactory.getImplementacion("Stream");
 		
 		//AGREGAR
-		try {
-			if(ventaStream.addVenta(venta)) {
-				System.out.println("Se genero una venta");
-			}else {
-				System.out.println("No se pudo guardar la venta");
-			}
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			if(ventaStream.addVenta(venta)) {
+//				System.out.println("Se genero una venta");
+//			}else {
+//				System.out.println("No se pudo guardar la venta");
+//			}
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		// MOSTRAR
 		
 		try {
