@@ -33,10 +33,10 @@ public class VentasDAOImplFileStream implements VentasDAO {
 	}
 
 	@Override
-	public boolean deleteVenta(Venta venta) throws IOException, FileNotFoundException {
+	public boolean deleteVenta(int id) throws IOException, FileNotFoundException {
 		List<Venta> lista = this.getAll();
 		for(Venta v: lista) {
-			if(v.getId() == venta.getId()) {
+			if(v.getId() == id) {
 				lista.remove(v);
 				this.saveAll(lista);
 				return true;

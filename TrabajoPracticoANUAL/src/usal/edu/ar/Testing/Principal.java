@@ -149,7 +149,7 @@ public class Principal {
 		//Eliminar
 		
 //		try {
-//			if(clienteStream.deleteCliente(cliente)) {
+//			if(clienteStream.deleteCliente(2)) {
 //				System.out.println("Se elimino el cliente");
 //			}else {
 //				System.out.println("No se pudo eliminar el cliente");
@@ -202,11 +202,12 @@ public class Principal {
 		//////////////////////////AEROLINEAS
 		//List<Vuelo> vuelos = new ArrayList<>(); // Lista vacia , FALTA GENERAR VUELOS PARA AGREGARLOS.
 		LineaAerea aerolinea = new LineaAerea(0,"GOL",Alianza.Skyteam,vuelos);
+		LineaAerea aerolinea1 = new LineaAerea(1,"AER",Alianza.Skyteam,vuelos);
 		LineaAereaDAO aeroStream = LineaAereaFactory.getImplementacion("Stream");
 		
 		//AGREGAR
 //		try {
-//			if(aeroStream.addAerolinea(aerolinea)) {
+//			if(aeroStream.addAerolinea(aerolinea1)) {
 //				System.out.println("Se agrego una aerolinea ");
 //			}else {
 //				System.out.println("No se pudo agregar una aerolinea ");
@@ -221,7 +222,7 @@ public class Principal {
 		//Borrar
 		
 //		try {
-//			if(aeroStream.deleteAerolinea(aerolinea)) {
+//			if(aeroStream.deleteAerolinea(0)) {
 //				System.out.println("Se borro una aerolinea con exito");
 //			}else {
 //				System.out.println("no se pudo borrar la aerolinea");
@@ -279,7 +280,7 @@ public class Principal {
 //		}
 		//Eliminar
 //		try {
-//			if(vueloStream.deleteVuelo(vuelo)) {
+//			if(vueloStream.deleteVuelo(1)) {
 //				System.out.println("Se elimino el vuel");
 //			}else {
 //				System.out.println("no se elimino");
@@ -291,7 +292,6 @@ public class Principal {
 //			// TODO Auto-generated catch block
 //			e1.printStackTrace();
 //		}
-			
 			
 			
 		//Mostrar
@@ -332,8 +332,24 @@ public class Principal {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-		// MOSTRAR
 		
+		//ELIMINAR
+		
+//		try {
+//			if(ventaStream.deleteVenta(1)) {
+//				System.out.println("Se elimino la venta");
+//			}else {
+//				System.out.println("No se pudo eliminar la venta");
+//			}
+//		} catch (FileNotFoundException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+		// MOSTRAR
+//		
 //		try {
 //			List<Venta> lista = ventaStream.getAll();
 //			if(lista.isEmpty()) {

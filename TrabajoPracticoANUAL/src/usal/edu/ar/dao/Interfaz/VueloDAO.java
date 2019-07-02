@@ -9,7 +9,7 @@ import usal.edu.ar.dao.Negocio.Vuelo;
 public interface VueloDAO {
 
 	boolean addVuelo(Vuelo vuelo) throws IOException ,FileNotFoundException;
-	boolean deleteVuelo(Vuelo vuelo) throws IOException , FileNotFoundException;
+	boolean deleteVuelo(int id) throws IOException , FileNotFoundException;
 	boolean updateVuelo(Vuelo vuelo) throws IOException , FileNotFoundException;
 	List<Vuelo> getAll() throws IOException , FileNotFoundException;
 }

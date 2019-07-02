@@ -10,7 +10,7 @@ public interface ClienteDAO {
 
 	boolean saveCliente (Cliente cliente) throws IOException, FileNotFoundException;
 	boolean updateCliente (Cliente cliente) throws IOException, FileNotFoundException;
-	boolean deleteCliente(Cliente cliente) throws IOException, FileNotFoundException;
+	boolean deleteCliente(int id) throws IOException, FileNotFoundException;
 	List<Cliente> getAll() throws IOException , FileNotFoundException;
 	
 }

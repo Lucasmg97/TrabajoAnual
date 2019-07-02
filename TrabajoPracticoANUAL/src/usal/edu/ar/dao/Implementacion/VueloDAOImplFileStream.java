@@ -33,10 +33,10 @@ public class VueloDAOImplFileStream implements VueloDAO{
 	}
 
 	@Override
-	public boolean deleteVuelo(Vuelo vuelo) throws IOException, FileNotFoundException {
+	public boolean deleteVuelo(int id) throws IOException, FileNotFoundException {
 		List<Vuelo> lista = this.getAll();
 		for(Vuelo v: lista) {
-			if(v.getId() == vuelo.getId()) {
+			if(v.getId() == id) {
 				lista.remove(v);
 				this.saveAll(lista);
 				return true;

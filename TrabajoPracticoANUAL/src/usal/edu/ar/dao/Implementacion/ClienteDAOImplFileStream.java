@@ -46,10 +46,10 @@ public class ClienteDAOImplFileStream implements ClienteDAO{
 	}
 
 	@Override
-	public boolean deleteCliente(Cliente cliente) throws IOException, FileNotFoundException {
+	public boolean deleteCliente(int id) throws IOException, FileNotFoundException {
 		List<Cliente> lista = this.getAll();
 		for(Cliente c : lista) {
-			if(c.getDni() == cliente.getDni()) {
+			if(c.getId() == id) {
 				lista.remove(c);
 				this.saveAll(lista);
 				return true;

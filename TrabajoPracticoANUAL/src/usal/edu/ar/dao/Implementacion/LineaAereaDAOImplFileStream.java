@@ -34,10 +34,10 @@ public class LineaAereaDAOImplFileStream implements LineaAereaDAO{
 	}
 
 	@Override
-	public boolean deleteAerolinea(LineaAerea lineaAerea) throws IOException, FileNotFoundException {
+	public boolean deleteAerolinea(int id) throws IOException, FileNotFoundException {
 		List<LineaAerea> aerolineas = this.getAll();
 		for(LineaAerea la : aerolineas) {
-			if(la.getId() == lineaAerea.getId()) {
+			if(la.getId() == id) {
 				aerolineas.remove(la);
 				this.saveAll(aerolineas);
 				return true;
