@@ -48,10 +48,9 @@ public class VueloDAOImplFileStream implements VueloDAO{
 	@Override
 	public boolean updateVuelo(Vuelo vuelo) throws IOException, FileNotFoundException {
 		List<Vuelo> lista = this.getAll();
-		for(Vuelo v : lista) {
-			if(v.getId() == vuelo.getId()) {
-				lista.remove(v);
-				lista.add(vuelo);
+		for(int i=0; i<lista.size(); i++) {
+			if(lista.get(i).getId() == vuelo.getId()) {
+				lista.set(i, vuelo);
 				this.saveAll(lista);
 				return true;
 			}

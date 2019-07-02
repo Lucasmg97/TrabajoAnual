@@ -35,10 +35,9 @@ public class ClienteDAOImplFileStream implements ClienteDAO{
 	@Override
 	public boolean updateCliente(Cliente cliente) throws IOException, FileNotFoundException {
 		List<Cliente> lista = this.getAll();
-		for(Cliente c : lista) {
-			if(c.getDni() == cliente.getDni()) {
-				lista.remove(c);
-				lista.add(cliente);
+		for(int i=0; i<lista.size(); i++) {
+			if(lista.get(i).getDni() == cliente.getDni()) {
+				lista.set(i, cliente);
 				this.saveAll(lista);
 				return true;
 			}

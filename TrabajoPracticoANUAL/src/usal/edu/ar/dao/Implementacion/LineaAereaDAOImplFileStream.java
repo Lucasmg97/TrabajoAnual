@@ -49,10 +49,9 @@ public class LineaAereaDAOImplFileStream implements LineaAereaDAO{
 	@Override
 	public boolean updateAerolinea(LineaAerea lineaAerea) throws IOException, FileNotFoundException {
 		List<LineaAerea> aerolineas = this.getAll();
-		for(LineaAerea la : aerolineas) {
-			if(la.getId() == lineaAerea.getId()) {
-				aerolineas.remove(la);
-				aerolineas.add(lineaAerea);
+		for(int i = 0; i<aerolineas.size(); i++) {
+			if(aerolineas.get(i).getId() == lineaAerea.getId()) {
+				aerolineas.set(i, lineaAerea);
 				this.saveAll(aerolineas);
 				return true;
 			}

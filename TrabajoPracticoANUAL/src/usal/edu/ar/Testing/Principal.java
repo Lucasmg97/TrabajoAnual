@@ -127,7 +127,7 @@ public class Principal {
 		PasajeroFrecuente pasajeroFrecuente = new PasajeroFrecuente(1,Alianza.Oneworld,lineaAerea,"12","Economica");
 		Direccion direccion = new Direccion("Av españa","1154","Lujan",provincia,pais,"6700");
 		Telefono telefono = new Telefono("2323524566","2323123432","232305054");
-		Cliente cliente = new Cliente(1,"Lucas","Martinez Gomez",40580890, pasaporte,"40580890",fechanacimiento,"Lucas.martinezgomez@usal.edu.ar",telefono , pasajeroFrecuente, direccion);
+		Cliente cliente = new Cliente(2,"Manuel","Martinez Gomez",42580890, pasaporte,"40580890",fechanacimiento,"Manuel.martinezgomez@usal.edu.ar",telefono , pasajeroFrecuente, direccion);
 		
 		ClienteDAO clienteStream = ClienteFactory.getImplementacion("Stream");
 		
@@ -164,7 +164,7 @@ public class Principal {
 		
 		//Actualizar
 		
-		Cliente cliente2 = new Cliente(1,"Lucas","Liz",40580890, pasaporte,"40580890",fechanacimiento,"Lucas.martinezgomez@usal.edu.ar",telefono , pasajeroFrecuente, direccion);
+		Cliente cliente2 = new Cliente(2,"Rodolfo","Liz",42580890, pasaporte,"40580890",fechanacimiento,"Lucas.martinezgomez@usal.edu.ar",telefono , pasajeroFrecuente, direccion);
 		
 //		try {
 //			if(clienteStream.updateCliente(cliente2)) {
@@ -334,22 +334,22 @@ public class Principal {
 //		}
 		// MOSTRAR
 		
-		try {
-			List<Venta> lista = ventaStream.getAll();
-			if(lista.isEmpty()) {
-				System.out.println("La lista se encuentra vacia");
-			}else {
-				for(Venta v: lista) {
-					System.out.println(v.toString());
-				}
-			}
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			List<Venta> lista = ventaStream.getAll();
+//			if(lista.isEmpty()) {
+//				System.out.println("La lista se encuentra vacia");
+//			}else {
+//				for(Venta v: lista) {
+//					System.out.println(v.toString());
+//				}
+//			}
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 	}
 

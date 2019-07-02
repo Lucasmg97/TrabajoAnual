@@ -48,10 +48,9 @@ public class VentasDAOImplFileStream implements VentasDAO {
 	@Override
 	public boolean updateVenta(Venta venta) throws IOException, FileNotFoundException {
 		List<Venta> lista = this.getAll();
-		for(Venta v: lista) {
-			if(v.getId() == venta.getId()) {
-				lista.remove(v);
-				lista.add(venta);
+		for(int i=0; i<lista.size(); i++) {
+			if(lista.get(i).getId() == venta.getId()) {
+				lista.set(i, venta);
 				this.saveAll(lista);
 				return true;
 			}
