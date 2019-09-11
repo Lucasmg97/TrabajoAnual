@@ -1,7 +1,7 @@
 package usal.edu.ar.dao.Negocio;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Pasaporte implements Serializable {
 
@@ -13,11 +13,22 @@ public class Pasaporte implements Serializable {
 	private String numero;
 	private Pais paisEmision;
 	private String autoridadEmision;
-	private Date  fechaEmision;
-	private Date fechaVencimiento;
+	private LocalDate  fechaEmision;
+	private LocalDate fechaVencimiento;
 	
-	public Pasaporte(int id,String numero, Pais paisEmision, String autoridadEmision, Date fechaEmision,
-			Date fechaVencimiento) {
+	
+	public Pasaporte(String numero, Pais paisEmision, String autoridadEmision, LocalDate fechaEmision,
+			LocalDate fechaVencimiento) {
+		super();
+		this.numero = numero;
+		this.paisEmision = paisEmision;
+		this.autoridadEmision = autoridadEmision;
+		this.fechaEmision = fechaEmision;
+		this.fechaVencimiento = fechaVencimiento;
+	}
+
+	public Pasaporte(int id,String numero, Pais paisEmision, String autoridadEmision, LocalDate fechaEmision,
+			LocalDate fechaVencimiento) {
 		super();
 		this.id = id;
 		this.numero = numero;
@@ -54,19 +65,19 @@ public class Pasaporte implements Serializable {
 		this.autoridadEmision = autoridadEmision;
 	}
 
-	public Date getFechaEmision() {
+	public LocalDate getFechaEmision() {
 		return fechaEmision;
 	}
 
-	public void setFechaEmision(Date fechaEmision) {
+	public void setFechaEmision(LocalDate fechaEmision) {
 		this.fechaEmision = fechaEmision;
 	}
 
-	public Date getFechaVencimiento() {
+	public LocalDate getFechaVencimiento() {
 		return fechaVencimiento;
 	}
 
-	public void setFechaVencimiento(Date fechaVencimiento) {
+	public void setFechaVencimiento(LocalDate fechaVencimiento) {
 		this.fechaVencimiento = fechaVencimiento;
 	}
 

@@ -70,5 +70,34 @@ public class PropertiesUtil {
 	public static String getFileVentas() {
 		return config.getProperty("fileVentas");
 	}
+	
+	// Base de datos
+	
+	public static String getDriver() {
+		return config.getProperty("driver");
+	}
+	public static String getUrl() {
+		return config.getProperty("url");
+	}
+	
+	public static String getIP() {
+		return config.getProperty("ip");
+	}
+	
+	public static String getPuerto() {
+		return config.getProperty("puerto");
+	}
+	
+	public static String getBase() {
+		return config.getProperty("base");
+	}
+	
+	public static String getUser() {
+		return config.getProperty("user");
+	}
+	
+	public static String getPassword() {
+		return config.getProperty("password");
+	}
 }
 	

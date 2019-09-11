@@ -11,6 +11,11 @@ public class Provincia implements Serializable{
 	private int id;
 	private String nombre;
 	
+	public Provincia (String nombre) {
+		super();
+		this.nombre = nombre;
+	}
+	
 	public Provincia(int id, String nombre) {
 		super();
 		this.id = id;

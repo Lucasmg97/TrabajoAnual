@@ -8,6 +8,7 @@ public class Telefono implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private int id;
 	private String numeroPersonal;
 	private String numeroCelular;
 	private String numeroLaboral;
@@ -54,6 +55,14 @@ public class Telefono implements Serializable{
 	public String toString() {
 		return "Telefono [numeroPersonal=" + numeroPersonal + ", numeroCelular=" + numeroCelular + ", numeroLaboral="
 				+ numeroLaboral + "]";
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

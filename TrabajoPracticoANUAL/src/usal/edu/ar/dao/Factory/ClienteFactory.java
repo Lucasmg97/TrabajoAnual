@@ -1,6 +1,7 @@
 package usal.edu.ar.dao.Factory;
 
 import usal.edu.ar.dao.Implementacion.ClienteDAOImplFileStream;
+import usal.edu.ar.dao.Implementacion.ClienteDAOImplSql;
 import usal.edu.ar.dao.Interfaz.ClienteDAO;
 
 public class ClienteFactory {
@@ -10,7 +11,7 @@ public class ClienteFactory {
 			return new ClienteDAOImplFileStream();
 		}else {
 			if(tipo.equalsIgnoreCase("Sql")) {
-				return null; // Falta hacer la implementacion con base de datos.
+				return new ClienteDAOImplSql();
 			}
 		}
 		return null;

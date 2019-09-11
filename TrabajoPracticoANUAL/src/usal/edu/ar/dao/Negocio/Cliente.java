@@ -1,7 +1,7 @@
 package usal.edu.ar.dao.Negocio;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Cliente implements Serializable{
 
@@ -15,13 +15,13 @@ public class Cliente implements Serializable{
 	private int dni;
 	private Pasaporte pasaporte;
 	private String cuitcuil;
-	private Date fechanacimiento;
+	private LocalDate fechanacimiento;
 	private String email;
 	private Telefono telefono;
 	private PasajeroFrecuente pasajeroFrecuente;
 	private Direccion direccion;
 	
-	public Cliente(int id,String nombre, String apellido, int dni, Pasaporte pasaporte, String cuitcuil, Date fechanacimiento,
+	public Cliente(int id,String nombre, String apellido, int dni, Pasaporte pasaporte, String cuitcuil, LocalDate fechanacimiento,
 			String email, Telefono telefono, PasajeroFrecuente pasajeroFrecuente, Direccion direccion) {
 		super();
 		this.id = id;
@@ -36,11 +36,28 @@ public class Cliente implements Serializable{
 		this.pasajeroFrecuente = pasajeroFrecuente;
 		this.direccion = direccion;
 	}
+	
+	// Constructor sin ID , por que la tabla de sql lo genera solo.
 
 	public Cliente() {
 		
 	}
 	
+	public Cliente(String nombre, String apellido, int dni, Pasaporte pasaporte, String cuitcuil, LocalDate fechanacimiento,
+			String email, Telefono telefono, PasajeroFrecuente pasajeroFrecuente, Direccion direccion) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.dni = dni;
+		this.pasaporte = pasaporte;
+		this.cuitcuil = cuitcuil;
+		this.fechanacimiento = fechanacimiento;
+		this.email = email;
+		this.telefono = telefono;
+		this.pasajeroFrecuente = pasajeroFrecuente;
+		this.direccion = direccion;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -89,11 +106,11 @@ public class Cliente implements Serializable{
 		this.cuitcuil = cuitcuil;
 	}
 
-	public Date getFechanacimiento() {
+	public LocalDate getFechanacimiento() {
 		return fechanacimiento;
 	}
 
-	public void setFechanacimiento(Date fechanacimiento) {
+	public void setFechanacimiento(LocalDate fechanacimiento) {
 		this.fechanacimiento = fechanacimiento;
 	}
 

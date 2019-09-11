@@ -8,6 +8,7 @@ public class Direccion implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private int id;
 	private String calle;
 	private String altura;
 	private String ciudad;
@@ -86,6 +87,14 @@ public class Direccion implements Serializable{
 	public String toString() {
 		return "Direccion [calle=" + calle + ", altura=" + altura + ", ciudad=" + ciudad + ", provincia=" + provincia.toString()
 				+ ", pais=" + pais.toString() + ", codPostal=" + codPostal + "]";
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 

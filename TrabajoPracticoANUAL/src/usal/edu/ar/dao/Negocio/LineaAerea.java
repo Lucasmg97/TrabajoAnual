@@ -14,6 +14,13 @@ public class LineaAerea implements Serializable{
 	private Alianza alianza;
 	private List<Vuelo> vuelos;
 	
+	public LineaAerea(String nombreAerolinea, Alianza alianza, List<Vuelo> vuelos) {
+		super();
+		this.nombreAerolinea = nombreAerolinea;
+		this.alianza = alianza;
+		this.vuelos = vuelos;
+	}
+
 	public LineaAerea(int id, String nombreAerolinea, Alianza alianza, List<Vuelo> vuelos) {
 		super();
 		this.id = id;

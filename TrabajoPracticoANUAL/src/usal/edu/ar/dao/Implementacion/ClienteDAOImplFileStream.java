@@ -7,9 +7,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import usal.edu.ar.Util.Conexion;
 import usal.edu.ar.Util.PropertiesUtil;
 import usal.edu.ar.dao.Interfaz.ClienteDAO;
 import usal.edu.ar.dao.Negocio.Cliente;
@@ -25,16 +28,16 @@ public class ClienteDAOImplFileStream implements ClienteDAO{
 	private String nameFile = PropertiesUtil.getFileClientes();
 
 	@Override
-	public boolean saveCliente(Cliente cliente) throws IOException, FileNotFoundException {
-		List<Cliente> lista = this.getAll();
+	public boolean saveCliente(Cliente cliente,Connection conn) throws IOException, FileNotFoundException, SQLException {
+		List<Cliente> lista = this.getAll(conn);
 		lista.add(cliente);
 		this.saveAll(lista);	
 		return true;
 	}
 
 	@Override
-	public boolean updateCliente(Cliente cliente) throws IOException, FileNotFoundException {
-		List<Cliente> lista = this.getAll();
+	public boolean updateCliente(Cliente cliente, Connection conn) throws IOException, FileNotFoundException, SQLException {
+		List<Cliente> lista = this.getAll(conn);
 		for(int i=0; i<lista.size(); i++) {
 			if(lista.get(i).getDni() == cliente.getDni()) {
 				lista.set(i, cliente);
@@ -46,8 +49,8 @@ public class ClienteDAOImplFileStream implements ClienteDAO{
 	}
 
 	@Override
-	public boolean deleteCliente(int id) throws IOException, FileNotFoundException {
-		List<Cliente> lista = this.getAll();
+	public boolean deleteCliente(int id, Connection conn) throws IOException, FileNotFoundException , SQLException{
+		List<Cliente> lista = this.getAll(conn);
 		for(Cliente c : lista) {
 			if(c.getId() == id) {
 				lista.remove(c);
@@ -59,7 +62,7 @@ public class ClienteDAOImplFileStream implements ClienteDAO{
 	}
 
 	@Override
-	public List<Cliente> getAll() throws IOException, FileNotFoundException {
+	public List<Cliente> getAll(Connection conn) throws IOException, FileNotFoundException, SQLException {
 		file = new File(path,nameFile);
 		if(!file.exists()) {
 			file = new File(path);
@@ -91,5 +94,19 @@ public class ClienteDAOImplFileStream implements ClienteDAO{
 		oout.close();
 		fout.close();
 	}
+
+	@Override
+	public boolean commitCliente(Connection conn) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean rollbackClinete(Connection conn) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
 
 }

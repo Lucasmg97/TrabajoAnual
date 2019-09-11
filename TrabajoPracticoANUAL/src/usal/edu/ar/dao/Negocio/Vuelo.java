@@ -1,7 +1,8 @@
 package usal.edu.ar.dao.Negocio;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 
 public class Vuelo implements Serializable{
@@ -24,9 +25,26 @@ public class Vuelo implements Serializable{
 	public Vuelo() {
 		
 	}
+	
+	public Vuelo(String id_vuelo, LineaAerea lineaAerea, int cantidadAsientos, Aeropuerto aeropuertoSalida,
+			Aeropuerto aeropuertoLlegada, Date fechahorasalida, Date fechahorallegada, String tiempovuelo,
+			List<Cliente> clientes) {
+		super();
+		this.id_vuelo = id_vuelo;
+		this.lineaAerea = lineaAerea;
+		this.cantidadAsientos = cantidadAsientos;
+		this.aeropuertoSalida = aeropuertoSalida;
+		this.aeropuertoLlegada = aeropuertoLlegada;
+		this.fechahorasalida = fechahorasalida;
+		this.fechahorallegada = fechahorallegada;
+		this.tiempovuelo = tiempovuelo;
+		this.clientes = clientes;
+	}
+
+
 
 	public Vuelo(int id,String id_vuelo, LineaAerea lineaAerea, int cantidadAsientos, Aeropuerto aeropuertoSalida,
-			Aeropuerto aeropuertoLlegada, Date fechahorasalida, Date fechahorallegada, String tiempovuelo,
+			Aeropuerto aeropuertoLlegada, Date horasalida, Date horallegada, String tiempovuelo,
 			List<Cliente> clientes) {
 		super();
 		this.id = id;
@@ -35,8 +53,8 @@ public class Vuelo implements Serializable{
 		this.cantidadAsientos = cantidadAsientos;
 		this.aeropuertoSalida = aeropuertoSalida;
 		this.aeropuertoLlegada = aeropuertoLlegada;
-		this.fechahorasalida = fechahorasalida;
-		this.fechahorallegada = fechahorallegada;
+		this.fechahorasalida = horasalida;
+		this.fechahorallegada = horallegada;
 		this.tiempovuelo = tiempovuelo;
 		this.clientes = clientes;
 	}

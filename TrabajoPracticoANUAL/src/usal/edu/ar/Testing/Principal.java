@@ -2,12 +2,21 @@ package usal.edu.ar.Testing;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
+import usal.edu.ar.Util.BuscadorUtil;
+import usal.edu.ar.Util.Conexion;
 import usal.edu.ar.Util.PropertiesUtil;
 import usal.edu.ar.dao.Factory.AerolineasFactory;
 import usal.edu.ar.dao.Factory.AlianzasFactory;
@@ -41,6 +50,94 @@ import usal.edu.ar.dao.Negocio.Vuelo;
 public class Principal {
 
 	public static void main(String[] args) {
+		
+		//TESTING BUSCADOR -> REVISAR COMO TRAER DE LA BD CON EL METODO READ DE PAISES QUE LO TRAE COMO HASH.
+		
+		BuscadorUtil buscador = new BuscadorUtil();
+//		String p = JOptionPane.showInputDialog("Ingrese Pais ");
+//		try {
+//			Pais pais1 = buscador.getPais(p);
+//			System.out.println(pais1.toString());
+//		} catch (FileNotFoundException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (SQLException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+		
+//		String nombre = JOptionPane.showInputDialog("Ingrese Aerolinea");
+//		LineaAerea ln;
+//		try {
+//			ln = buscador.getAerolinea(nombre);
+//			System.out.println(ln.toString());
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+//		String provinciaNombre = JOptionPane.showInputDialog("Ingrese provincia :");
+//		try {
+//			Provincia provincia1 = buscador.getProvincia(provinciaNombre);
+//			System.out.println(provincia1.toString());
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+		
+		/*
+		 * TEST CONEXION A BASE DE DATOS
+		 */
+		
+//		Connection conn = Conexion.getConnection();
+//		try {
+//			if(!conn.isClosed()) {
+//				System.out.println("Conexion establecida");
+//				conn.close();
+//				System.out.println("Conexion cerrada");
+//			}else {
+//				System.out.println("No se pudo establecer la conexion");
+//			}
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+		///// TESTEO TRAYENDO AEROLINEAS DESDE LA BASE DE DATOS. 
+		
+//		AerolineasDAO aeroSql = AerolineasFactory.getImplementacion("sql");
+//		try {
+//			Hashtable<Integer, String> aerolineas = aeroSql.readAerolineas();
+//			for(int i=1; i<aerolineas.size(); i++) {
+//				System.out.println(aerolineas.get(i));
+//			}
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+		
+		//////////////TESTEO TRAYENDO PAISES DESDE LA BASE DE DATOS. 
+//			PaisesDAO paisesSql = PaisesFactory.getImplementacion("sql");
+//		try {
+//			Hashtable<Integer, String> paises = paisesSql.readPaises();
+//			for(int i=1; i<paises.size(); i++) {
+//				System.out.println(paises.get(i));
+//			}
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	 
 		/*
 		 * Se testea que se puedan cargar las provincias, alianzas, paises que estan alojados en un archivo de texto
@@ -115,9 +212,11 @@ public class Principal {
 //		
 		
 		////////////////////////////////////////////// TESTEO CLIENTES
-		Date fechaemision = new Date(119,4,7);
-		Date fechavencimiento = new Date(120,4,7);
-		Date fechanacimiento = new Date(97,7,6);
+	
+		
+		LocalDate fechaemision = LocalDate.of(2019, 8, 21);
+		LocalDate fechavencimiento = LocalDate.of(2019, 9, 21);
+		LocalDate fechanacimiento = LocalDate.of(1997, 7, 6);
 		Pais pais = new Pais(1,"Argentina");
 		List<Vuelo> vuelos = new ArrayList<>();
 		LineaAerea lineaAerea = new LineaAerea(1,"Aerolineas Argentinas",Alianza.Oneworld,vuelos);
@@ -197,6 +296,9 @@ public class Principal {
 //		} catch (IOException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
 //		}
 		
 		//////////////////////////AEROLINEAS
@@ -255,14 +357,14 @@ public class Principal {
 //		}
 		
 		//////////////////////// VUELOS
-		String tiempo = "6";
-		Date horasalida = new Date(119, 5, 5, 12, 0);
-		Date horallegada = new Date(119,5,5,horasalida.getHours()+Integer.valueOf(tiempo),0);
-		Aeropuerto aeropuertosalida = new Aeropuerto(1, "MDQ","mar del plata", provincia,pais);
-		Aeropuerto aeropuertollegada = new Aeropuerto(1,"GES","gesell",provincia,pais);
-		List<Cliente> clientes = new ArrayList<>();
-		Vuelo vuelo = new Vuelo(1,"AEE123",aerolinea,50,aeropuertosalida,aeropuertollegada,horasalida,horallegada,tiempo,clientes);
-		
+//		String tiempo = "6";
+//		Date horasalida = new Date(119, 5, 5, 12, 0);
+//		Date horallegada = new Date(119,5,5,horasalida.getHours()+Integer.valueOf(tiempo),0);
+//		Aeropuerto aeropuertosalida = new Aeropuerto(1, "MDQ","mar del plata", provincia,pais);
+//		Aeropuerto aeropuertollegada = new Aeropuerto(1,"GES","gesell",provincia,pais);
+//		List<Cliente> clientes = new ArrayList<>();
+//		Vuelo vuelo = new Vuelo(1,"AEE123",aerolinea,50,aeropuertosalida,aeropuertollegada,horasalida,horallegada,tiempo,clientes);
+//		
 		VueloDAO vueloStream = VueloFactory.getImplementacion("Stream");
 		//Agregar
 //		try {
@@ -314,9 +416,9 @@ public class Principal {
 //		}
 		
 		/////////////////////////////VENTAS
-		Date fechahoraventa= new Date(119,5,6,20,30);
-		Venta venta = new Venta(1,cliente,vuelo,lineaAerea,fechahoraventa,"Efectivo",1,"40000");
-		VentasDAO ventaStream = VentasFactory.getImplementacion("Stream");
+//		Date fechahoraventa= new Date(119,5,6,20,30);
+//		Venta venta = new Venta(1,cliente,vuelo,lineaAerea,fechahoraventa,"Efectivo",1,"40000");
+//		VentasDAO ventaStream = VentasFactory.getImplementacion("Stream");
 		
 		//AGREGAR
 //		try {
