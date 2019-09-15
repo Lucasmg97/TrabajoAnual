@@ -37,10 +37,8 @@ public class ClienteDAOImplSql implements ClienteDAO{
 			cliente.setId(rs.getInt(1));
 		}
 		if(r==1) {
-				//conn.commit();
 				return true;
 		}
-		//conn.rollback();
 		ps.close();
 
 		return false;

@@ -164,9 +164,11 @@ public class PrincipalSQL {
 					Cliente c = new Cliente();
 					c = clientes.get(i);
 					lista.add(c);
-					System.out.println(lista.toString());
 				}
 			}
+			//System.out.println(clientes.size());
+			//System.out.println(lista.toString());
+			//System.out.println(clientes.toString());
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
