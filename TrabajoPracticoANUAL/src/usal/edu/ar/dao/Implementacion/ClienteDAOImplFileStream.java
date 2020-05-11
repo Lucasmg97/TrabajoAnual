@@ -48,7 +48,6 @@ public class ClienteDAOImplFileStream implements ClienteDAO{
 		return false;
 	}
 
-	@Override
 	public boolean deleteCliente(int id, Connection conn) throws IOException, FileNotFoundException , SQLException{
 		List<Cliente> lista = this.getAll(conn);
 		for(Cliente c : lista) {
@@ -103,6 +102,13 @@ public class ClienteDAOImplFileStream implements ClienteDAO{
 
 	@Override
 	public boolean rollbackClinete(Connection conn) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteCliente(Cliente cliente, Connection conn)
+			throws IOException, FileNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		return false;
 	}

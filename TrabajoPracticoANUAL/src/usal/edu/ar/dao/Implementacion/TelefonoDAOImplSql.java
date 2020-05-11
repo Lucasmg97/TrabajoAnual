@@ -41,18 +41,17 @@ public class TelefonoDAOImplSql implements TelefonoDAO {
 
 	@Override
 	public boolean deleteTelefono(Cliente cliente, Connection conn) throws SQLException {
-		query = "DELETE * FROM Telefono where id_Cliente=?";
+		query = "DELETE FROM Telefono where id_Cliente=?";
 		
-			conn.setAutoCommit(false);
-			ps = conn.prepareStatement(query);
-			ps.setInt(1, cliente.getId());
-			int r = ps.executeUpdate();
-			
-			if(r==1) {
-				return true;
-			}else {
-				conn.rollback();
-			}
+		conn.setAutoCommit(false);
+		ps = conn.prepareStatement(query);
+		ps.setInt(1, cliente.getId());
+		int r = ps.executeUpdate();
+		if(r==1) {
+			System.out.println("telefono true");
+			return true;
+		}
+		ps.close();
 		return false;
 	}
 

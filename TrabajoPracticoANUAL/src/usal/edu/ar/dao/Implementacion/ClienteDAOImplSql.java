@@ -63,18 +63,27 @@ public class ClienteDAOImplSql implements ClienteDAO{
 		return false;
 	}
 	@Override
-	public boolean deleteCliente(int id, Connection conn) throws IOException, FileNotFoundException, SQLException {
-		// TODO Auto-generated method stub
+	public boolean deleteCliente(Cliente cliente, Connection conn) throws IOException, FileNotFoundException, SQLException {
+		query = "DELETE FROM Cliente where id_cliente=?";
+		conn.setAutoCommit(false);
+		ps = conn.prepareStatement(query);
+		ps.setInt(1, cliente.getId());
+		int r = ps.executeUpdate();
+		if(r==1) {
+			System.out.println("cliente true ");
+			return true;
+		}
+		ps.close();
 		return false;
 	}
 	@Override
 	public List<Cliente> getAll(Connection conn) throws IOException, FileNotFoundException, SQLException {
 		List<Cliente> lista = new ArrayList<>();
-		Cliente c = new Cliente();
 		query = "SELECT * FROM Cliente";
 		ps = conn.prepareStatement(query);
 		rs = ps.executeQuery();
 		while(rs.next()) {
+			Cliente c = new Cliente();
 			c.setId(rs.getInt(1));
 			c.setNombre(rs.getString(2));
 			c.setApellido(rs.getString(3));

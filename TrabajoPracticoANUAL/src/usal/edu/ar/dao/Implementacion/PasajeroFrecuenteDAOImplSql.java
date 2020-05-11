@@ -44,12 +44,13 @@ public class PasajeroFrecuenteDAOImplSql implements PasajeroFrecuenteDAO{
 
 	@Override
 	public boolean deletePasajeroFrecuente(Cliente cliente, Connection conn) throws SQLException {
-		query = "DELETE * FROM Pasajero_frecuente where id_cliente=?";
+		query = "DELETE  FROM Pasajero_frecuente where id_cliente=?";
 		conn.setAutoCommit(false);
 		ps = conn.prepareStatement(query);
 		ps.setInt(1, cliente.getId());
 		int r = ps.executeUpdate();
 		if(r==1) {
+			System.out.println("PF true");
 			return true;
 		}else {
 			conn.rollback();

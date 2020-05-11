@@ -2,6 +2,7 @@ package usal.edu.ar.Util;
 
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import usal.edu.ar.dao.Interfaz.BuscadorDAO;
 import usal.edu.ar.dao.Negocio.Aeropuerto;
 import usal.edu.ar.dao.Negocio.Alianza;
+import usal.edu.ar.dao.Negocio.Cliente;
 import usal.edu.ar.dao.Negocio.LineaAerea;
 import usal.edu.ar.dao.Negocio.Pais;
 import usal.edu.ar.dao.Negocio.Provincia;
@@ -235,8 +237,27 @@ public class BuscadorUtil implements BuscadorDAO{
 		ps.close();
 		conn.close();
 		return ln;
-		
-		
+	}
+	
+	public Cliente getClienteByDNI(int dni, Connection conn) throws SQLException{
+		query = "SELECT * FROM Cliente where dni=?";
+		Cliente c = new Cliente();
+		conn.setAutoCommit(false);
+		PreparedStatement ps = conn.prepareStatement(query);
+		ps.setInt(1, dni);
+		ResultSet rs = ps.executeQuery();
+		while(rs.next()) {
+			c.setId(rs.getInt(1));
+			c.setNombre(rs.getString(2));
+			c.setApellido(rs.getString(3));
+			c.setDni(rs.getInt(4));
+			c.setCuitcuil(rs.getString(5));
+			c.setFechanacimiento(Date.valueOf(rs.getString(6)).toLocalDate());
+			c.setEmail(rs.getString(7));
+		}
+		ps.close();
+		rs.close();
+		return c;
 	}
 
 }

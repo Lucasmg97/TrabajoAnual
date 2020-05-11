@@ -44,16 +44,16 @@ public class PasaporteDAOImpSql implements PasaporteDAO{
 
 	@Override
 	public boolean deletePasaporte(Cliente cliente, Connection conn) throws SQLException {
-		query = "DELETE * FROM Pasaporte where id_cliente=?";
+		query = "DELETE FROM Pasaporte where id_cliente=?";
 		conn.setAutoCommit(false);
 		ps = conn.prepareStatement(query);
 		ps.setInt(1, cliente.getId());
 		int r = ps.executeUpdate();
 		if(r==1) {
+			System.out.println("pasaporte true");
 			return true;
-		}else {
-			conn.rollback();
 		}
+		
 		ps.close();
 		return false;
 	}

@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import usal.edu.ar.Util.BuscadorUtil;
 import usal.edu.ar.Util.Conexion;
 import usal.edu.ar.dao.Factory.AerolineasFactory;
@@ -143,42 +145,76 @@ public class PrincipalSQL {
 //			e.printStackTrace();
 //		}
 		
+
+	
 		
 		
-		// MOSTRAR -> ME MUESTRA EL MISMO OBJETO 
+//		
+//		try {
+//			if(clienteImple.deleteCliente(cliente, conn)) {
+//				clienteImple.commitCliente(conn);
+//				System.out.println("Se elimino el cliente.");
+//			}else {
+//				System.out.println("No se pudo eliminar el cliente. ");
+//			}
+//		} catch (FileNotFoundException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (SQLException e1) {
+//			clienteImple.rollbackClinete(conn);
+//			System.out.println("Se ejecuto el rollback. ");
+//			e1.printStackTrace();
+//		}
+		
+		Cliente cliente1 = new Cliente();
 		try {
-			List<Cliente> clientes = clienteImple.getAll(conn);
-			List<Cliente> lista = new ArrayList<>();
-			if(clientes.isEmpty()) {
-				System.out.println("No hay clientes en la base");
-			}else {
-				for(int i=0; i<clientes.size(); i++) {
-					PasajeroFrecuente pf = pasaFreImple.getPasajeroFrecuente(clientes.get(i), conn);
-					Telefono t = teleImple.getTelefono(clientes.get(i), conn);
-					Pasaporte p = pasaImple.getPasaporte(clientes.get(i), conn);
-					Direccion d = direImple.getDireccion(clientes.get(i), conn);
-					clientes.get(i).setPasajeroFrecuente(pf);
-					clientes.get(i).setTelefono(t);
-					clientes.get(i).setPasaporte(p);
-					clientes.get(i).setDireccion(d);
-					Cliente c = new Cliente();
-					c = clientes.get(i);
-					lista.add(c);
+			cliente1 = buscador.getClienteByDNI(40580890, conn);
+			if(pasaFreImple.deletePasajeroFrecuente(cliente1, conn) & direImple.deleteDireccion(cliente1, conn) & teleImple.deleteTelefono(cliente1, conn) & pasaImple.deletePasaporte(cliente1, conn)) {
+				if(clienteImple.deleteCliente(cliente1, conn)) {
+					clienteImple.commitCliente(conn);
+					System.out.println("Se elimino el cliente. ");
 				}
 			}
-			//System.out.println(clientes.size());
-			//System.out.println(lista.toString());
-			//System.out.println(clientes.toString());
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (SQLException | IOException e) {
+			clienteImple.rollbackClinete(conn);
+			System.out.println("Se ejecuto el rollback.");
 			e.printStackTrace();
 		}
+		
+//		try {
+//			List<Cliente> clientes = clienteImple.getAll(conn);
+//			List<Cliente> lista = new ArrayList<>();
+//			if(clientes.isEmpty()) {
+//				System.out.println("No hay clientes en la base");
+//			}else {
+//				for(int i=0; i<clientes.size(); i++) {
+//					PasajeroFrecuente pf = pasaFreImple.getPasajeroFrecuente(clientes.get(i), conn);
+//					Telefono t = teleImple.getTelefono(clientes.get(i), conn);
+//					Pasaporte p = pasaImple.getPasaporte(clientes.get(i), conn);
+//					Direccion d = direImple.getDireccion(clientes.get(i), conn);
+//					clientes.get(i).setPasajeroFrecuente(pf);
+//					clientes.get(i).setTelefono(t);
+//					clientes.get(i).setPasaporte(p);
+//					clientes.get(i).setDireccion(d);
+//					Cliente c = new Cliente();
+//					c = clientes.get(i);
+//					lista.add(c);
+//					System.out.println(c.toString());
+//				}
+//			}
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		
 		
